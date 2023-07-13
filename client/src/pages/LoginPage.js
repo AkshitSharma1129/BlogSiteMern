@@ -28,21 +28,29 @@ export default function LoginPage(){
             return <Navigate to={'/'} />
           }
     return(
-      <div class="container right-panel-active">
-      <div class="container__form container--signup">
-        <form action="" className="form" onSubmit={login}>
-            <h2 className="form__title">login</h2>
-            <input type="text" placeholder="username" className="input"
-            value={username}
-            onChange={ev => setUsername(ev.target.value)}  />
-            <input type="password" placeholder="password"
-            value={password} className="input"
-            onChange={ev => setPassword(ev.target.value)} />
-            <button className="btn">Login</button>
-            <Link to={'/register'} style={{color:"blue", textDecoration:"none", paddingTop:'10px' }}> New User? Regitser here</Link>
+<div className="mainform">
+<form action="" className="register" onSubmit={login}>
+<div class="title">Login Here!</div>
+<div class="input-container ic1">
+  <input id="username" class="input" type="text" placeholder="username" value={username}
+            onChange={ev => setUsername(ev.target.value)}/>
+  <div class="cut"></div>
+  {/* <label for="username" class="placeholder">username</label> */}
+</div>
+<div class="input-container ic2">
+  <input id="email" class="input" type="password" placeholder="password" value={password} className="input"
+            onChange={ev => setPassword(ev.target.value)}  />
+  <div class="cut cut-short"></div>
+  {/* <label for="password" class="placeholder">Email</label> */}
+</div>
+            <button type="text" class="submit">Login</button>
+
+            <div style={{ textAlign: 'center' }}>
+  <Link to={'/register'} style={{ color: 'white', fontSize: 'small', textDecoration: 'none' }}>New User? Regitser here</Link>
+</div>
         </form>
         </div> 
-        </div>
+        // </div>
         // <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`} ></div>
     // </div>
     // </div>
