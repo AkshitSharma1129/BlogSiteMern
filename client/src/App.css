@@ -1,0 +1,502 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  color: rgba(255, 255, 255, 0.853);
+}
+
+main{
+  padding: 10px;
+  max-width: 100%;
+  /* humare main page jismai content aayega uski width  */
+  margin: 0 auto;
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  align-items: center;
+}
+header a{
+  text-decoration:none;
+  color: inherit;
+}
+header a.logo{
+  font-weight: bold;
+  font-size: 1.5rem;
+  /* margin-right: 900px; */
+  margin-left:-70%;
+}
+/* nav mai login and register hai   unke bech mai gap */
+header nav{
+  display:flex;
+  gap: 24px;
+}
+img{
+  max-width: 100%;
+  max-height: 100%;
+  align-self: center;
+}
+
+.post{
+  /* post hai 2 parts iamge and texts div */
+  display: grid;
+  grid-template-columns:0.9fr 1.1fr;
+  gap: 20px;
+  /* margin-bottom: 30px; */
+  margin: 0 auto 30px 11%; 
+  align-items: center;
+  max-width: 85%;
+   /* space btw 2 posts */
+}
+@media screen and (min-width: 700px) {
+  div.post{
+      grid-template-columns: .9fr 1.1fr;
+  }
+}
+div.post div.texts h2{
+  margin:0;
+  font-size: 2rem;
+  text-decoration: none;
+}
+div.post p.info{
+  /* info mai author and time */
+  margin:24px 0;
+  color: #888;
+  font-size:1rem;
+  font-weight: bold;
+  display: flex;
+  gap: 10px;
+}
+
+div.post p.info a.author{
+  color:#333;
+  
+}
+div.post p.summary{
+  margin:10px 0;
+  line-height: 1.8rem;
+  color: rgba(255, 255, 255, 0.838);
+}
+form.login, form.register {
+  max-width: 400px;
+  margin: 120px auto;
+  /* centre from left & right */
+}
+input{
+    display: block;
+    margin-bottom: 14px;
+    width: 100%;
+    padding: 8px 7px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+button{
+    cursor: pointer;
+    width: 100%;
+    /* but still button width!= input due to padding on left and right  so add box sizing on page  */
+    display: block;
+    background-color: #555;
+    border:0;
+    color: #fff;
+    border-radius: 5px;
+    padding: 7px 0;
+}
+form.login h1, form.register h1{
+  text-align: center;
+}
+
+
+div.post-page div.image{
+  max-height:500px;
+  display: flex;
+  overflow:hidden;
+  align-items: center;
+}
+div.post-page div.image img{
+  object-fit: cover;
+  object-position: center center;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 5%;
+}
+div.post-page a{
+  color:whitesmoke;
+  text-decoration: underline;
+}
+div.post-page h1{
+  text-align: center;
+  margin: 10px 0 5px;
+  font-size:3rem;
+  font-weight: bold;
+}
+div.post-page time{
+  text-align: center;
+  display: block;
+  font-size:1rem;
+  color:#aaa;
+  margin: 10px 0;
+  
+}
+div.post-page div.author{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: .7rem;
+  font-weight: bold;
+  padding-bottom: 40px;
+}
+div.content p{
+  line-height: 1.7rem;
+  margin: 30px 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+div.content li{
+  margin-bottom: 10px;
+}
+div.edit-row{
+  text-align: center;
+  margin-bottom: 20px;
+}
+div.post-page a.edit-btn{
+  background-color: #333;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+  padding:15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+a svg{
+  height:20px;
+}
+.inpcreate{
+  display: block;
+    margin-bottom: 14px;
+    width: 80%;
+    padding: 8px 7px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    color: black;
+
+}
+.postform{
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.postbtn{
+  cursor: pointer;
+  width: 80%;
+  /* but still button width!= input due to padding on left and right  so add box sizing on page  */
+  display: block;
+  background-color: #555;
+  border:0;
+  color: #fff;
+  border-radius: 5px;
+  padding: 7px 0;
+  /* margin-left: 5%; */
+}
+.blogg{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  font-size: 55px; /* Adjust the desired font size */
+  text-shadow: 5px 5px 7px rgba(166, 66, 66, 0.5); /* Add text shadow */
+
+}
+@media only screen and (max-width: 600px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+  }
+  header a.logo {
+    /* display: flex; */
+    /* flex-direction: column; */
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  header nav {
+    margin-top: 10px;
+    
+  }
+  .post {
+    grid-template-columns: 1fr;
+    margin: 0 auto 30px;
+  }
+  div.post div.texts h2 {
+    font-size: 1.5rem;
+  }
+  form.login,
+  form.register {
+    margin: 80px auto;
+  }
+
+  .inpcreate {
+    width: 100%;
+  }
+
+  .postform {
+    margin-top: 10%;
+  }
+}
+.delbtn{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+  background-color: #333;
+  padding:13px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  max-width: 14%;
+  max-height: 10%;
+  margin-left: 2%;
+}
+:root {
+	/* COLORS */
+	--white: #e9e9e9;
+	--gray: #333;
+	--blue: #0367a6;
+	--lightblue: #008997;
+
+	/* RADII */
+	--button-radius: 0.7rem;
+
+	/* SIZES */
+	--max-width: 758px;
+	--max-height: 420px;
+
+	font-size: 16px;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+	align-items: center;
+	/* background-color: var(--white); */
+	/* background: url("https://res.cloudinary.com/dci1eujqw/image/upload/v1616769558/Codepen/waldemar-brandt-aThdSdgx0YM-unsplash_cnq4sb.jpg"); */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: grid;
+	/* height: 100vh; */
+	/* place-items: center; */
+}
+
+.form__title {
+	font-weight: 600;
+	margin: 0;
+	margin-bottom: 1.25rem;
+  font-size: xx-large;
+  color: black;
+  text-shadow: #aaa;
+}
+
+.link {
+	color: var(--gray);
+	font-size: 0.9rem;
+	margin: 1.5rem 0;
+	text-decoration: none;
+}
+
+.container {
+	background-color: var(--white);
+	border-radius: var(--button-radius);
+	box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
+		0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
+	height: var(--max-height);
+	max-width: var(--max-width);
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 22%;
+  margin-top: 9%;
+}
+
+.container__form {
+	height: 100%;
+	position: absolute;
+	top: 0;
+	transition: all 0.6s ease-in-out;
+}
+
+.container--signin {
+	left: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+.container.right-panel-active .container--signin {
+	transform: translateX(100%);
+}
+
+.container--signup {
+	left: 0;
+	opacity: 0;
+	width: 50%;
+	z-index: 1;
+}
+
+.container.right-panel-active .container--signup {
+	animation: show 0.6s;
+	opacity: 1;
+	transform: translateX(100%);
+	z-index: 5;
+    /* background-image: url("https://cdn.pixabay.com/photo/2017/01/18/08/25/social-media-1989152_1280.jpg"); */
+
+}
+
+.container__overlay {
+	height: 100%;
+	left: 50%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	transition: transform 0.6s ease-in-out;
+	width: 50%;
+	z-index: 100;
+}
+
+.container.right-panel-active .container__overlay {
+	transform: translateX(-100%);
+}
+
+.overlay {
+	background-color: var(--lightblue);
+	/* background: url("https://res.cloudinary.com/dci1eujqw/image/upload/v1616769558/Codepen/waldemar-brandt-aThdSdgx0YM-unsplash_cnq4sb.jpg"); */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	left: -100%;
+	position: relative;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+  /* background-image: url("https://cdn.pixabay.com/photo/2017/01/18/08/25/social-media-1989152_1280.jpg"); */
+  /* background-image: url("https://cdn.pixabay.com/photo/2017/01/18/08/25/social-media-1989152_1280.jpg"); */
+
+
+	width: 200%;
+}
+
+.container.right-panel-active .overlay {
+	transform: translateX(50%);
+  
+}
+.container.right-panel-active{
+/* background: #121312;   */
+/* background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  Chrome 10-25, Safari 5.1-6 */
+/* background: linear-gradient(to right, #ffffff, #abbaab);  */
+/* background: url("https://cdn.pixabay.com/photo/2017/01/18/08/25/social-media-1989152_1280.jpg"); */
+/* background-image: url("https://cdn.pixabay.com/photo/2017/01/18/08/25/social-media-1989152_1280.jpg"); */
+background-image: url("https://st2.depositphotos.com/1006899/8646/i/950/depositphotos_86463824-stock-photo-blog-hanging-on-strings.jpg");
+background-size: 50% 100%; 
+}
+.overlay__panel {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+	width: 50%;
+}
+
+.overlay--left {
+	transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay--left {
+	transform: translateX(0);
+}
+
+.overlay--right {
+	right: 0;
+	transform: translateX(0);
+}
+
+.container.right-panel-active .overlay--right {
+	transform: translateX(20%);
+}
+
+.btn {
+	background-color: var(--blue);
+	background-image: linear-gradient(90deg, var(--blue) 0%, var(--lightblue) 74%);
+	border-radius: 20px;
+	border: 1px solid var(--blue);
+	color: var(--white);
+	cursor: pointer;
+	font-size: 0.8rem;
+	font-weight: bold;
+	letter-spacing: 0.1rem;
+	padding: 0.9rem 4rem;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+.form > .btn {
+	margin-top: 1.5rem;
+}
+
+.btn:active {
+	transform: scale(0.95);
+}
+
+.btn:focus {
+	outline: none;
+}
+
+.form {
+	background-color: var(--white);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 3rem;
+	height: 100%;
+	text-align: center;
+}
+
+.input {
+	background-color: #fff;
+	border: none;
+	padding: 0.9rem 0.9rem;
+	margin: 0.5rem 0;
+	width: 100%;
+}
+
+@keyframes show {
+	0%,
+	49.99% {
+		opacity: 0;
+		z-index: 1;
+	}
+
+	50%,
+	100% {
+		opacity: 1;
+		z-index: 5;
+	}
+}
