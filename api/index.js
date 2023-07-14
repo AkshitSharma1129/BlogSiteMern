@@ -41,19 +41,23 @@ const multer = require('multer');
 const uploadMiddleware = multer({ dest: 'uploads/' });
 const fs = require('fs');
 
+const dotenv = require('dotenv')
+dotenv.config();
+
 const salt = bcrypt.genSaltSync(10);
 const secret = 'asdfe45we45w345wegw345werjktjwertkj';
 
-app.use(cors({credentials:true,origin:'http://localhost:3000'}));
+app.use(cors({credentials:true,origin:process.env.FRONTENDURL}));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
-mongoose.connect('mongodb+srv://akshitlovesmusic:uLmOHFe1OVKYoIfQ@cluster0.ogwgjnh.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect(process.env.MONGOURL);
 // uLmOHFe1OVKYoIfQ
 const path = require('path');
 // app.post('/register',async (req,res)=>{
 //     // since we want to send information from register page
+
 //     // we will be using post 
 //     // so now in register page add value={username} and usestate in input tag
 //     // request karo body se
