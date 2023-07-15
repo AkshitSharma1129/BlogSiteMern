@@ -9,9 +9,10 @@ export default function EditPost() {
   const [content,setContent] = useState('');
   const [files, setFiles] = useState('');
   const [redirect,setRedirect] = useState(false);
-
+  const tala = process.env.REACT_APP_BASE_URL;
+console.log(tala);
   useEffect(() => {
-    fetch('http://localhost:4000/post/'+id)
+    fetch(`${process.env.REACT_APP_BASE_URL}/post`+id)
       .then(response => {
         response.json().then(postInfo => {
           setTitle(postInfo.title);
@@ -22,6 +23,8 @@ export default function EditPost() {
   }, []);
 
   async function updatePost(ev) {
+    const tala2 = process.env.REACT_APP_BASE_URL;
+    console.log(tala2);
     ev.preventDefault();
     const data = new FormData();
     data.append('title', title);
@@ -31,7 +34,7 @@ export default function EditPost() {
     if (files?.[0]) {
       data.append('file', files?.[0]);
     }
-    const response = await fetch('http://localhost:4000/post', {
+    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/post`, {
       method: 'PUT',
       body: data,
       credentials: 'include',

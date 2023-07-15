@@ -8,8 +8,11 @@ export default function Header(){
     // CHECK IF LOGGED INN
     // const {username,setUsername} = useState(null) info abt user should not be stored here 
     const {setUserInfo,userInfo} = useContext(UserContext);
+    const tala = process.env.REACT_APP_BASE_URL;
+    console.log(tala);
     useEffect(() => {
-        fetch('http://localhost:4000/profile', {
+        fetch(`${process.env.REACT_APP_BASE_URL}/profile`, {
+        // fetch('http://localhost:4000/profile', {
           credentials: 'include',
         }).then(response => {
           response.json().then(userInfo => {
@@ -20,7 +23,8 @@ export default function Header(){
       }, []);
 
       function logout() {
-        fetch('http://localhost:4000/logout', {
+        fetch(`${process.env.REACT_APP_BASE_URL}/logout`, {
+        // fetch('http://localhost:4000/logout', {
           credentials: 'include',
           method: 'POST',
         });

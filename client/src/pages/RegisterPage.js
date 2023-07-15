@@ -10,25 +10,18 @@ export default function RegisterPage(){
     const [email, setEmail] = useState('');
     const [redirect,setRedirect] = useState(false);
     async function register(e){
-            e.preventDefault();//prevent redirection of page
-            // we want to send a post request when we click button 
-            // we prefer await here rather than try catch
-            const response = await fetch('http://localhost:4000/register', {
-                // WE ARE POSTING/SENDING INFO TO 4000 PAGE IE SERVER
+      const tala = process.env.REACT_APP_BASE_URL;
+      console.log(tala);
+            e.preventDefault();
+            console.log(process.env.REACT_APP_BASE_URL);
+            const response = await fetch(`${process.env.REACT_APP_BASE_URL}/register`, {
+            // const response = await fetch('http://localhost:4000/register', {
+              
                 method: 'POST',
                 body: JSON.stringify({username,password,email}),
                 headers: {'Content-Type':'application/json'},
               });
-              // if (response.status === 200) {
-              //   setRedirect(true);
-              //   alert('registration successful');
-              //   // return <Link to="/login" />;
-              //   // const history = useHistory();
-              //   // return <Link to="/" />;
-              // // history.push('/login');
-              // } else {
-              //   alert('registration failed');
-              // }
+              
               if (response.status === 200) {
                 alert('registration successful');
                 setRedirect(true)
@@ -48,18 +41,6 @@ export default function RegisterPage(){
     return(
 <div className="mainform">
         <form action="" className="register" onSubmit={register}>
-            {/* <h1>register</h1>
-            <input type="text" placeholder="username" 
-                    value={username}
-                    onChange={e => setUsername(e.target.value)}/>
-            <input type="password" placeholder="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)} />
-            <input type="email" placeholder="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)} />
-            <button>Register</button>
-            <Link to={'/login'}>already Regitered? Login here</Link> */}
             <div class="title">Welcome</div>
 <div class="subtitle">Let's create your account!</div>
 <div class="input-container ic1">
@@ -73,18 +54,17 @@ export default function RegisterPage(){
   <input id="email" class="input" type="text" placeholder="email" value={email}
                     onChange={e => setEmail(e.target.value)}/>
   <div class="cut cut-short"></div>
-  {/* <label for="email" class="placeholder">Email</label> */}
+
 </div>
 <div class="input-container ic2">
   <input id="email" class="input" type="password" placeholder="password" value={password}
                     onChange={e => setPassword(e.target.value)}/>
   <div class="cut cut-short"></div>
-  {/* <label for="password" class="placeholder">Email</label> */}
+
 </div>
 
 <button type="text" class="submit">Register</button>
-{/* <Link to={'/login'} style={{color:'white'}}>already Regitered? Login here</Link> */}
-{/* <Link to={'/login'} style={{ color: 'white', fontSize: 'small', textDecoration: 'none', textAlign: 'center' }}>already Registered? Login here</Link> */}
+
 <div style={{ textAlign: 'center' }}>
   <Link to={'/login'} style={{ color: 'white', fontSize: 'small', textDecoration: 'none' }}>already Registered? Login here</Link>
 </div>

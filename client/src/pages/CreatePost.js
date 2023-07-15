@@ -25,7 +25,8 @@ export default function CreatePost() {
     const [content,setContent] = useState('');
     const [files, setFiles] = useState('');
     const [redirect, setRedirect] = useState(false);
-
+    const tala = process.env.REACT_APP_BASE_URL;
+    console.log(tala);
     async function createNewPost(ev) {
       const data = new FormData();
       data.append('title', title);
@@ -33,7 +34,9 @@ export default function CreatePost() {
       data.append('content', content);
       data.append('file', files[0]);// as we want to send only 1 file
       ev.preventDefault();
-      const response = await fetch('http://localhost:4000/post', {
+      const tala1 = process.env.REACT_APP_BASE_URL;
+      console.log(tala1);    
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/post`, {
         method: 'POST',
         body: data,
         // we want to send data   so either we can send json or create a var to store data named as data

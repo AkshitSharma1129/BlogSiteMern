@@ -5,8 +5,11 @@ import 'react-vertical-timeline-component/style.min.css';
 
 export default function IndexPage(){
     const [posts,setPosts] = useState([]);
+    const tala = process.env.REACT_APP_BASE_URL;
+    console.log(tala);
     useEffect(() => {
-        fetch('http://localhost:4000/post').then(response => {
+        fetch(`${process.env.REACT_APP_BASE_URL}/post`).then(response => {
+        // fetch('http://localhost:4000/post').then(response => {
           response.json().then(posts => {
             setPosts(posts);
           });

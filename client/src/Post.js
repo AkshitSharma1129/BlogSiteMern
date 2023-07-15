@@ -4,6 +4,8 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 
 export default function Post({_id,title,summary,cover,content,createdAt,author}){
+  const tala = process.env.REACT_APP_BASE_URL;
+    console.log(tala);
     return ( 
         <div className='post'>
           {/* <VerticalTimelineElement className="vertical-timeline-element--work"
@@ -17,7 +19,8 @@ export default function Post({_id,title,summary,cover,content,createdAt,author})
   {/* <h3 className="vertical-timeline-element-title"> */}
      <div className="image">
       <Link to={`/post/${_id}`}>
-      <img src={'http://localhost:4000/'+cover} alt=""/>
+      {/* <img src={'http://localhost:4000/'+cover} alt=""/> */}
+      <img src={`${process.env.REACT_APP_BASE_URL}`+cover} alt=""/>
       {/* <img src="https://images.hindustantimes.com/auto/img/2023/04/12/600x338/urus-s1_1664456748431_1681299436548_1681299436548.jpg" alt="" /> */}
       </Link>
       </div>

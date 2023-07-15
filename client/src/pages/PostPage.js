@@ -13,9 +13,11 @@ export default function PostPage() {
   const {id} = useParams();
   const navigate = useNavigate();
   // const [titleString, setTitleString] = useState('');
-
+  const tala = process.env.REACT_APP_BASE_URL;
+    console.log(tala);
   useEffect(() => {
-    fetch(`http://localhost:4000/post/${id}`)
+    fetch(`${process.env.REACT_APP_BASE_URL}/post/${id}`)
+    // fetch(`http://localhost:4000/post/${id}`)
       .then(response => {
         response.json().then(postInfo => {
           setPostInfo(postInfo);
@@ -24,7 +26,8 @@ export default function PostPage() {
       });
   }, [id]);
   const handleDelete = () => {
-    fetch(`http://localhost:4000/post/${id}`, {
+    fetch(`${process.env.REACT_APP_BASE_URL}/post/${id}`, {
+    // fetch(`http://localhost:4000/post/${id}`, {
       method: "DELETE",
       credentials: "include",
     })
