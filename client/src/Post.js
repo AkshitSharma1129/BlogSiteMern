@@ -20,7 +20,7 @@ export default function Post({_id,title,summary,cover,content,createdAt,author})
      <div className="image">
       <Link to={`/post/${_id}`}>
       {/* <img src={'http://localhost:4000/'+cover} alt=""/> */}
-      <img src={`${process.env.REACT_APP_BASE_URL}`+cover} alt=""/>
+      <img src={`${process.env.REACT_APP_BASE_URL}${cover}`} alt="" />
       {/* <img src="https://images.hindustantimes.com/auto/img/2023/04/12/600x338/urus-s1_1664456748431_1681299436548_1681299436548.jpg" alt="" /> */}
       </Link>
       </div>
