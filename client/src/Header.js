@@ -11,8 +11,8 @@ export default function Header(){
     const tala = process.env.REACT_APP_BASE_URL;
     console.log(tala);
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_BASE_URL}/profile`, {
-        // fetch('http://localhost:4000/profile', {
+        // fetch(`${process.env.REACT_APP_BASE_URL}/profile`, {
+        fetch('http://localhost:4000/profile', {
           credentials: 'include',
         }).then(response => {
           response.json().then(userInfo => {
@@ -23,8 +23,8 @@ export default function Header(){
       }, []);
 
       function logout() {
-        fetch(`${process.env.REACT_APP_BASE_URL}/logout`, {
-        // fetch('http://localhost:4000/logout', {
+        // fetch(`${process.env.REACT_APP_BASE_URL}/logout`, {
+        fetch('http://localhost:4000/logout', {
           credentials: 'include',
           method: 'POST',
         });

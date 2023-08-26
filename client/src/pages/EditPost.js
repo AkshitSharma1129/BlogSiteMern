@@ -12,7 +12,9 @@ export default function EditPost() {
   const tala = process.env.REACT_APP_BASE_URL;
 console.log(tala);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/post`+id)
+    // fetch(`${process.env.REACT_APP_BASE_URL}/post`+id)
+    // fetch(`${process.env.REACT_APP_BASE_URL}/post`+id)
+    fetch('http://localhost:4000/post/'+id)
       .then(response => {
         response.json().then(postInfo => {
           setTitle(postInfo.title);
@@ -34,7 +36,8 @@ console.log(tala);
     if (files?.[0]) {
       data.append('file', files?.[0]);
     }
-    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/post`, {
+    // const response = await fetch(`${process.env.REACT_APP_BASE_URL}/post`, {
+    const response = await fetch('http://localhost:4000/post', {
       method: 'PUT',
       body: data,
       credentials: 'include',

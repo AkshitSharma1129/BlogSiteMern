@@ -13,9 +13,9 @@ export default function RegisterPage(){
       const tala = process.env.REACT_APP_BASE_URL;
       console.log(tala);
             e.preventDefault();
-            console.log(process.env.REACT_APP_BASE_URL);
-            const response = await fetch(`${process.env.REACT_APP_BASE_URL}/register`, {
-            // const response = await fetch('http://localhost:4000/register', {
+            // console.log(process.env.REACT_APP_BASE_URL);
+            // const response = await fetch(`${process.env.REACT_APP_BASE_URL}/register`, {
+            const response = await fetch('http://localhost:4000/register', {
               
                 method: 'POST',
                 body: JSON.stringify({username,password,email}),
@@ -44,10 +44,10 @@ export default function RegisterPage(){
             <div class="title">Welcome</div>
 <div class="subtitle">Let's create your account!</div>
 <div class="input-container ic1">
-  <input id="username" class="input" type="text" placeholder=" " value={username}
+  <input id="username" class="input" type="text" placeholder="username" value={username}
                     onChange={e => setUsername(e.target.value)}/>
   <div class="cut"></div>
-  <label for="username" class="placeholder">username</label>
+
 </div>
 
 <div class="input-container ic2">

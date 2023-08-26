@@ -5,6 +5,11 @@ import {formatISO9075} from "date-fns";
 import {UserContext} from "../UserContext";
 import {Link ,useNavigate} from 'react-router-dom';
 // import { Typewriter } from 'typewriter-effect';
+// import Card from '@mui/material/Card';
+// import CardContent from '@mui/material/CardContent';
+// import CardMedia from '@mui/material/CardMedia';
+// import Typography from '@mui/material/Typography';
+// import { Button, CardActionArea, CardActions } from '@mui/material';
 
 import Typewriter from 'react-typewriter';
 export default function PostPage() {
@@ -16,8 +21,8 @@ export default function PostPage() {
   const tala = process.env.REACT_APP_BASE_URL;
     console.log(tala);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/post/${id}`)
-    // fetch(`http://localhost:4000/post/${id}`)
+    // fetch(`${process.env.REACT_APP_BASE_URL}/post/${id}`)
+    fetch(`http://localhost:4000/post/${id}`)
       .then(response => {
         response.json().then(postInfo => {
           setPostInfo(postInfo);
@@ -26,8 +31,8 @@ export default function PostPage() {
       });
   }, [id]);
   const handleDelete = () => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/post/${id}`, {
-    // fetch(`http://localhost:4000/post/${id}`, {
+    // fetch(`${process.env.REACT_APP_BASE_URL}/post/${id}`, {
+    fetch(`http://localhost:4000/post/${id}`, {
       method: "DELETE",
       credentials: "include",
     })
@@ -56,6 +61,34 @@ export default function PostPage() {
     cursorStyle="_"
   />
 </h1> */}
+
+{/* <Card sx={{ maxWidth: 345 }}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={`http://localhost:4000/${postInfo.cover}`}
+          alt="green iguana"
+        />
+          <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+          {postInfo.title}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+          {{__html:postInfo.content}}
+          </Typography>
+        </CardContent>
+        </CardActionArea>
+        <CardActions>
+        <Typography variant="body2" color="textSecondary">
+        @{postInfo.author.username}
+</Typography>
+        <Typography variant="body2" color="textSecondary">
+        @{postInfo.author.username}
+</Typography>
+      </CardActions>
+    </Card> */}
+
 
       <h1>{postInfo.title}</h1>
       <time>{formatISO9075(new Date(postInfo.createdAt))}</time>

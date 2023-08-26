@@ -36,7 +36,8 @@ export default function CreatePost() {
       ev.preventDefault();
       const tala1 = process.env.REACT_APP_BASE_URL;
       console.log(tala1);    
-      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/post`, {
+      // const response = await fetch(`${process.env.REACT_APP_BASE_URL}/post`, {
+        const response = await fetch('http://localhost:4000/post', {
         method: 'POST',
         body: data,
         // we want to send data   so either we can send json or create a var to store data named as data

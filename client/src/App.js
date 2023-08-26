@@ -10,9 +10,13 @@ import {UserContextProvider} from "./UserContext";
 import CreatePost from './pages/CreatePost';
 import PostPage from "./pages/PostPage";
 import EditPost from "./pages/EditPost";
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 function App() {
   return (
-
+<HelmetProvider>
+      <Helmet>
+        <title>Akshit's Blog</title>
+      </Helmet>
     <UserContextProvider>
     <Routes>
 {/* main part of web page */}
@@ -47,6 +51,7 @@ So, in summary, this configuration sets up a route for the root path ("/") and r
     </Route>
     </Routes>
     </UserContextProvider>
+    </HelmetProvider>
   );
 }
 
