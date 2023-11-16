@@ -1,33 +1,4 @@
-// const express = require('express');
-// const cors = require('cors')
-// const User = require('./models/User');
-// const mongoose = require("mongoose");
-// const bcrypt = require('bcrypt');
-// const jwt = require('jsonwebtoken');
-// const cookieParser = require('cookie-parser');
 
-
-// const multer = require('multer');
-// const uploadMiddleware = multer({ dest: 'uploads/' });
-// const fs = require('fs');
-
-// const Post = require('./models/Post');
-
-// const app = express();
-// const salt = bcrypt.genSaltSync(10);
-// const secret = 'asdfe45we45w345wegw345werjktjwertkj';
-
-
-// app.get('/test',(req,res)=>{
-//     res.json('test ok')
-// })
-// app.use(cors());
-
-
-// app.use(cors({credentials:true,origin:'http://localhost:3000'}));
-// app.use(express.json());
-// app.use(cookieParser());
-// app.use('/uploads', express.static(__dirname + '/uploads'));
 const express = require('express');
 const cors = require('cors');
 const mongoose = require("mongoose");
@@ -55,7 +26,7 @@ app.use('/uploads', express.static(__dirname + '/uploads'));
 
 mongoose.connect(process.env.MONGOURL);
 // uLmOHFe1OVKYoIfQ
-const path = require('path');
+
 // app.post('/register',async (req,res)=>{
 //     // since we want to send information from register page
 
@@ -201,6 +172,34 @@ app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
   });
 });
 
+app.post('/post/:id/like', async (req, res) => {
+  const { id } = req.params;
+  const { token } = req.cookies;
+
+  try {
+    const postDoc = await Post.findById(id);
+    const user = await User.findOne({ token }); // Retrieve the user by token
+
+    if (!postDoc || !user) {
+      return res.status(404).json('Post or user not found.');
+    }
+
+    // Check if the user has already liked the post
+    if (user.likedPosts.includes(id)) {
+      return res.status(400).json('You have already liked this post.');
+    }
+
+    postDoc.likes += 1; // Increment the like count
+    user.likedPosts.push(id); // Add the post ID to the user's likedPosts array
+
+    await postDoc.save();
+    await user.save();
+
+    res.json({ message: 'Post liked successfully.', likes: postDoc.likes });
+  } catch (error) {
+    res.status(500).json('An error occurred while liking the post.');
+  }
+});
 
 
 

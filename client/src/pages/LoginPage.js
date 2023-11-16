@@ -19,6 +19,7 @@ export default function LoginPage(){
         // const response = await fetch(`${process.env.REACT_APP_BASE_URL}/login`, {
           // const response = await fetch('http://localhost:4000/login', {
           method: 'POST',
+          // method: 'POST': It specifies that this is a POST request, typically used for submitting data to the server.
           body: JSON.stringify({username, password}),
           headers: {'Content-Type':'application/json'},
           credentials: 'include',

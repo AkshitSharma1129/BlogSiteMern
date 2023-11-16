@@ -6,6 +6,10 @@ const PostSchema = new Schema({
   summary:String,
   content:String,
   cover:String,
+  likedPosts: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Post',
+  }],
   author:{type:Schema.Types.ObjectId, ref:'User'},//US AUTHOR KA IE REFERNCE IS OF THAT USER
 }, {
   timestamps: true,
@@ -14,3 +18,4 @@ const PostSchema = new Schema({
 const PostModel = model('Post', PostSchema);
 
 module.exports = PostModel;
+
